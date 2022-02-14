@@ -31,15 +31,15 @@ def get_version(rel_path: str) -> str:
 setup(
     name="genpip",
     version=get_version("genpip/__init__.py"),
-    description="Generate and deploy python projects ",
+    description="Easily create and push python libraries to pypi.org",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/frankhart2018/moasm",
+    url="https://github.com/frankhart2018/genpip",
     author="Siddhartha Dhar Choudhury",
     author_email="sdharchou@gmail.com",
     license="MIT",
     packages=find_packages(),
-    entry_points={"console_scripts": ["moasm = moasm.run:run",]},
+    entry_points={"console_scripts": ["genpip = genpip.genpip:main",]},
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
@@ -49,5 +49,5 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.6",
     ],
-    # install_requires=["flask", "mypy"],
+    install_requires=["pipreqs"],
 )

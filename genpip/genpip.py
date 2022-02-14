@@ -12,5 +12,6 @@ def main():
 
     if args.generate:
         g = Generate()
+        g.generate_project()
     elif args.deploy:
         pass
