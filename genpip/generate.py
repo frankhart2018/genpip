@@ -111,7 +111,7 @@ def generate():
             file_name = input(f"{BOLD_START}Command File Name: {DESIGN_END}")
             function_name = input(f"{BOLD_START}Command Function Name: {DESIGN_END}")
 
-            commands.append(f"{command} = {name}.{file_name}.{function_name}")
+            commands.append(f"{command} = {name}.{file_name}:{function_name}")
 
     config = {
         "name": name,
