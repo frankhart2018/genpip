@@ -5,5 +5,3 @@ __pycache__
 build/
 dist/
 genpip.egg-info/
-test_things/
-requirements.txt
