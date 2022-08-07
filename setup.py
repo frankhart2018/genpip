@@ -29,17 +29,17 @@ def get_version(rel_path: str) -> str:
 
 # This call to setup() does all the work
 setup(
-    name="genpip",
-    version=get_version("genpip/__init__.py"),
+    name="genpylib",
+    version=get_version("genpylib/__init__.py"),
     description="Easily generate and deploy python libraries to pypi.org",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/frankhart2018/genpip",
+    url="https://github.com/frankhart2018/genpylib",
     author="Siddhartha Dhar Choudhury",
     author_email="sdharchou@gmail.com",
     license="MIT",
     packages=find_packages(),
-    entry_points={"console_scripts": ["genpip = genpip.run:run",]},
+    entry_points={"console_scripts": ["genpylib = genpylib.run:run",]},
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",

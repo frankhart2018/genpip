@@ -4,4 +4,4 @@ __pycache__
 .idea/
 build/
 dist/
-genpip.egg-info/
+genpylib.egg-info/
