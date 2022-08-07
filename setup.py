@@ -49,5 +49,5 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.6",
     ],
-    install_requires=["pipreqs", "twine"],
+    install_requires=["pipreqs", "twine", "simplpy"],
 )

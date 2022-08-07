@@ -42,7 +42,7 @@ setup(
     {% if type_ == "cli" %}
     entry_points={"console_scripts": [
         {% for command in commands %} 
-        "{{command['command']}} = {{name}}.{{command['file_name']}}:{{command['function_name']}}", 
+        "{{command}}", 
         {% endfor %}
     ]},
     {% endif %}
