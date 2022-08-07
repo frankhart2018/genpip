@@ -3,7 +3,12 @@ import os
 
 from .generate import generate
 from .deploy import deploy
-from .constants import GENPIP_DIR, TEMPLATES_DIR, SETUP_TEMPLATE_FILE_PATH, SETUP_TEMPLATE_URL
+from .constants import (
+    GENPIP_DIR,
+    TEMPLATES_DIR,
+    SETUP_TEMPLATE_FILE_PATH,
+    SETUP_TEMPLATE_URL,
+)
 from .ascii import BLUE_START, BOLD_START, DESIGN_END
 
 
@@ -11,7 +16,9 @@ def init():
     os.makedirs(GENPIP_DIR, exist_ok=True)
     os.makedirs(TEMPLATES_DIR, exist_ok=True)
 
-    os.system(f"wget -O {SETUP_TEMPLATE_FILE_PATH} {SETUP_TEMPLATE_URL} > /dev/null 2>&1")
+    os.system(
+        f"wget -O {SETUP_TEMPLATE_FILE_PATH} {SETUP_TEMPLATE_URL} > /dev/null 2>&1"
+    )
     print(f"{BOLD_START}Downloaded setup.py template{DESIGN_END}")
 
 

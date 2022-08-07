@@ -56,8 +56,16 @@ def create_init_file(name, version):
 def create_gitignore(name):
     gitignore_path = os.path.join(name, ".gitignore")
 
-    ignore_list = [".DS_Store", ".vscode/", ".idea/", "__pycache__/", "venv/", "dist/",
-                   "build/", "*.egg-info/"]
+    ignore_list = [
+        ".DS_Store",
+        ".vscode/",
+        ".idea/",
+        "__pycache__/",
+        "venv/",
+        "dist/",
+        "build/",
+        "*.egg-info/",
+    ]
     dump_list(ignore_list, gitignore_path)
 
 
@@ -126,4 +134,6 @@ def generate():
     create_gitignore(name=name)
 
     setup_path = os.path.join(name, "setup.py")
-    compile_template(config=config, template_path=SETUP_TEMPLATE_FILE_PATH, dump_path=setup_path)
+    compile_template(
+        config=config, template_path=SETUP_TEMPLATE_FILE_PATH, dump_path=setup_path
+    )
