@@ -21,3 +21,11 @@ user@programmer~:$ genpip -g
 ```bash
 user@programmer~:$ genpip -d
 ```
+
+3. To mock deploy a project run:
+
+```bash
+user@programmer~:$ genpip -m
+```
+
+**Note**: A mock deployment is a deployment that is not actually pushed to pypi.org, it involves all the other steps.
