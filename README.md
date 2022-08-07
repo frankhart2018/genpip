@@ -1,6 +1,6 @@
 # GenPip
 
-GenPip is an easy to use python package boilerplate generator which also eases deploying python packages to pypi.org.
+Easily generate and deploy python libraries to pypi.org
 
 ## Installation
 

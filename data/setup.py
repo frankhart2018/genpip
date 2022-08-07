@@ -29,25 +29,31 @@ def get_version(rel_path: str) -> str:
 
 # This call to setup() does all the work
 setup(
-    name="genpip",
-    version=get_version("genpip/__init__.py"),
-    description="Easily generate and deploy python libraries to pypi.org",
+    name="{{name}}",
+    version=get_version("{{name}}/__init__.py"),
+    description="{{description}}",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/frankhart2018/genpip",
-    author="Siddhartha Dhar Choudhury",
-    author_email="sdharchou@gmail.com",
-    license="MIT",
+    url="{{url}},
+    author="{{author_name}}",
+    author_email="{{author_email}}",
+    license="{{license}}",
     packages=find_packages(),
-    entry_points={"console_scripts": ["genpip = genpip.run:run",]},
+    {% if type_ == "cli" %}
+    entry_points={"console_scripts": [
+        {% for command in commands %} 
+        "{{command['command']}} = {{name}}.{{command['file_name']}}:{{command['function_name']}}", 
+        {% endfor %}
+    ]},
+    {% endif %}
     classifiers=[
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: {{license_classifier}}",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.6",
+        {% for version in range(python_support_latest, python_support_oldest - 1, -1) %}
+        "Programming Language :: Python :: 3.{{version}}",
+        {% endfor %}
     ],
-    install_requires=["pipreqs", "twine"],
+    {% if dependencies|length > 0 %}
+    install_requires=[{% for dependency in dependencies %}"{{dependency}}", {% endfor %}],
+    {% endif %}
 )
