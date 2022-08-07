@@ -12,6 +12,10 @@ def add_dependencies(setup_file_contents, setup_file_path):
 
     libraries = [library.split("==")[0].strip() for library in requirements]
     libraries.remove("setuptools")
+    if len(libraries) == 0:
+        print(f"{BLUE_START}No dependencies found!{DESIGN_END}")
+        return
+
     install_requires_statement = f"\tinstall_requires={libraries},"
 
     setup_file_lines = setup_file_contents.split("\n")
@@ -23,7 +27,7 @@ def add_dependencies(setup_file_contents, setup_file_path):
     print(f"{BLUE_START}setup.py file updated with dependencies!{DESIGN_END}")
 
 
-def deploy():
+def deploy(mock=False):
     setup_file_path = "setup.py"
 
     if not os.path.exists("setup.py"):
@@ -40,6 +44,8 @@ def deploy():
     os.system(f"python3 {setup_file_path} sdist bdist_wheel > /dev/null 2>&1")
     print(f"{BLUE_START}Checking...{DESIGN_END}")
     os.system(f"twine check dist/*")
-    print(f"{BLUE_START}Uploading...{DESIGN_END}")
-    os.system(f"twine upload dist/*")
+
+    if not mock:
+        print(f"{BLUE_START}Uploading...{DESIGN_END}")
+        os.system(f"twine upload dist/*")
     

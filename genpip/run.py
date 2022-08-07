@@ -25,6 +25,9 @@ def run():
     parser.add_argument(
         "-d", "--deploy", action="store_true", help="Deploy a package to pypi.org"
     )
+    parser.add_argument(
+        "-m", "--mock", action="store_true", help="Mock a deployment (no actual upload)"
+    )
 
     args = parser.parse_args()
 
@@ -36,3 +39,5 @@ def run():
         generate()
     elif args.deploy:
         deploy()
+    elif args.mock:
+        deploy(mock=True)
