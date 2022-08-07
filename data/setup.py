@@ -34,7 +34,7 @@ setup(
     description="{{description}}",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="{{url}},
+    url="{{url}}",
     author="{{author_name}}",
     author_email="{{author_email}}",
     license="{{license}}",

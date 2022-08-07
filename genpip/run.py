@@ -2,8 +2,7 @@ import argparse
 import os
 
 from .generate import generate
-
-# from .deploy import deploy
+from .deploy import deploy
 from .constants import GENPIP_DIR, TEMPLATES_DIR, SETUP_TEMPLATE_FILE_PATH, SETUP_TEMPLATE_URL
 from .ascii import BLUE_START, BOLD_START, DESIGN_END
 
@@ -36,4 +35,4 @@ def run():
     if args.generate:
         generate()
     elif args.deploy:
-        print("Deploying a package to pypi.org")
+        deploy()
